@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :potato_prices, only: [:index]
+      resource :best_daily_potential_gains, only: [:show]
     end
   end
 end
