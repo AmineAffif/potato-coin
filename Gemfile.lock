@@ -177,6 +177,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.10)
+    rack-attack (6.7.0)
+      rack (>= 1.0, < 4)
     rack-session (1.0.2)
       rack (< 3)
     rack-test (2.2.0)
@@ -308,6 +310,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2)
   faker
   puma (~> 5.0)
+  rack-attack
   rails (~> 7.1.0)
   rspec-rails (~> 6.0)
   rubocop-rails-omakase
