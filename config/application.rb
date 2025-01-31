@@ -12,6 +12,9 @@ module PotatoCoin
     config.load_defaults 7.1
     config.middleware.use Rack::Attack
 
+    # Enable detailed logging in development
+    config.log_level = :debug
+    
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
