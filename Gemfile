@@ -5,7 +5,8 @@ ruby '3.1.2'
 gem 'rails', '~> 7.1.0'
 gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
-gem 'active_model_serializers', '~> 0.10.13'
+# gem 'active_model_serializers'
+gem 'jbuilder'
 gem 'faker'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

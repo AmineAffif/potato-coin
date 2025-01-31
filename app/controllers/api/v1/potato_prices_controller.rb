@@ -2,13 +2,15 @@ module Api
   module V1
     class PotatoPricesController < ApplicationController
       def index
-        date = params[:date] || Date.today.to_s
-        start_time = Time.zone.parse(date).beginning_of_day
-        end_time = start_time.end_of_day
-
-        prices = PotatoPrice.where(time: start_time..end_time).order(:time)
-
-        render json: prices, each_serializer: PotatoPriceSerializer
+        @potato_prices = PotatoPrice.where(time: params[:date].to_date.all_day).order(:time)
+        
+        respond_to do |format|
+          format.json do
+            if @potato_prices.empty?
+              render json: { message: "No data available for this date" }, status: :not_found
+            end
+          end
+        end
       end
     end
   end

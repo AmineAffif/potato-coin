@@ -40,5 +40,14 @@ RSpec.describe "BestDailyPotentialGain API", type: :request do
       json = JSON.parse(response.body)
       expect(json["message"]).to eq("No data available for this date")
     end
+
+    it 'returns the correct JSON structure' do
+      get api_v1_best_daily_potential_gain_path(date: "2022-08-22")
+      
+      expect(response).to have_http_status(:ok)
+      json_response = JSON.parse(response.body)
+      
+      expect(json_response['max_profit']).to eq(((103.75 - 98.50) * 100).round(2))
+    end
   end
 end

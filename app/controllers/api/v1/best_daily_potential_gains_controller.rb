@@ -3,13 +3,15 @@ module Api
     class BestDailyPotentialGainsController < ApplicationController
       def show
         date = params[:date] || Date.yesterday.to_s
-        prices = PotatoPrice.where(time: date.to_date.all_day).order(:time)
+        @prices = PotatoPrice.where(time: date.to_date.all_day).order(:time)
 
-        return render json: { message: "No data available for this date" }, status: :not_found if prices.empty?
+        if @prices.empty?
+          render json: { message: "No data available for this date" }, status: :not_found
+          return
+        end
 
-        max_profit = calculate_max_gain(prices)
-
-        render json: { date: date, max_profit: max_profit.round(2) }
+        @date = date
+        @max_profit = calculate_max_gain(@prices)
       end
 
       private
@@ -18,10 +20,20 @@ module Api
       def calculate_max_gain(prices)
         min_price = Float::INFINITY
         max_profit = 0.0
+        @best_buy_time = nil
+        @best_sell_time = nil
 
         prices.each do |price|
-          min_price = [min_price, price.value].min
-          max_profit = [max_profit, (price.value - min_price) * 100].max
+          if price.value < min_price
+            min_price = price.value
+            @best_buy_time = price.time
+          end
+
+          current_profit = (price.value - min_price) * 100
+          if current_profit > max_profit
+            max_profit = current_profit
+            @best_sell_time = price.time
+          end
         end
 
         max_profit
