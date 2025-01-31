@@ -7,7 +7,11 @@ class Rack::Attack
     req.ip
   end
 
-  self.throttled_response = lambda do |_env|
-    [429, { "Content-Type" => "application/json" }, [{ error: "Rate limit exceeded. Try again later." }.to_json]]
+  self.throttled_responder = lambda do |request|
+    [
+      429,
+      {'Content-Type' => 'application/json'},
+      [{error: "Throttle limit reached. Please wait before retrying."}.to_json]
+    ]
   end
 end
