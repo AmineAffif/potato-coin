@@ -1,4 +1,5 @@
 # Potato Coin API - Test Technique
+![logo potato](https://github.com/user-attachments/assets/7ba2fc3b-cb1d-4010-b4e9-9b67adc26d98)
 
 ## Description
 
