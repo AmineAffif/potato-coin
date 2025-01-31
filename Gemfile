@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby '3.1.2'
 
 gem 'rails', '~> 7.1.0'
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 gem 'puma', '~> 5.0'
 # gem 'active_model_serializers'
 gem 'jbuilder'
