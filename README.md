@@ -101,6 +101,4 @@ Amine Affif ©2025
 
 🚀 **Bon trading !**
 
-<!-- Video demo en autoplay et loop -->
-
 https://github.com/user-attachments/assets/0f0387e2-83c0-47b4-a2cc-be9a2d14760f
