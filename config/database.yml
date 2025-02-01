@@ -6,8 +6,6 @@ default: &default
 development:
   <<: *default
   database: potato_coin_development
-  username: potato_coin_user
-  password: <%= ENV['DATABASE_PASSWORD_DEV'] %>
   host: localhost
   port: 5432
 
