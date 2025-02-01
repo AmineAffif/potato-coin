@@ -101,7 +101,11 @@ Amine Affif ©2025
 
 🚀 **Bon trading !**
 
+
+https://github.com/user-attachments/assets/0f0387e2-83c0-47b4-a2cc-be9a2d14760f
+
+
 <video width="100%" autoplay loop muted playsinline>
-  <source src="https://res.cloudinary.com/dqhp7mt1b/video/upload/v1738440458/ezgif-38253a06181fd_1_m0cbfq.mp4" type="video/mp4">
+  <source src="https://github-production-user-asset-6210df.s3.amazonaws.com/45182137/408824378-0f0387e2-83c0-47b4-a2cc-be9a2d14760f.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250201%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250201T201720Z&X-Amz-Expires=300&X-Amz-Signature=4590d84318fdc5b7a97081cf7f401a96229733ef253a04beee468299cfe00366&X-Amz-SignedHeaders=host" type="video/mp4">
   Votre navigateur ne supporte pas la lecture de vidéos.
 </video>
