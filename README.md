@@ -100,3 +100,8 @@ Amine Affif ©2025
 ---
 
 🚀 **Bon trading !**
+
+<video width="100%" autoplay loop muted playsinline>
+  <source src="https://res.cloudinary.com/dqhp7mt1b/video/upload/v1738440458/ezgif-38253a06181fd_1_m0cbfq.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la lecture de vidéos.
+</video>
