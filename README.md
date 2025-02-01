@@ -1,4 +1,5 @@
 # Potato Coin API - Test Technique
+
 ![logo potato](https://github.com/user-attachments/assets/7ba2fc3b-cb1d-4010-b4e9-9b67adc26d98)
 
 ## Description
@@ -6,36 +7,6 @@
 Potato Coin API est une API REST développée en Ruby on Rails, permettant d'obtenir des informations sur les prix des pommes de terre et les meilleurs gains quotidiens potentiels.
 
 L'API est déployée sur un serveur VPS et est accessible via HTTPS avec un reverse proxy Nginx.
-
-## Accès à l'API
-
-L'API est accessible via les endpoints suivants :
-
-(limite de 100 requêtes par 5 minutes)
-
-- **Meilleurs gains quotidiens potentiels** :
-
-  ```bash
-  GET https://potato-coin.freedynamicdns.net/api/v1/best_daily_potential_gains?date=2025-01-16
-  ```
-
-  <a href="https://potato-coin.freedynamicdns.net/api/v1/best_daily_potential_gains?date=2025-01-16" target="_blank">Tester l'endpoint best_daily_potential_gains 🤑</a>
-
-- **Prix des pommes de terre** :
-
-  ```bash
-  GET https://potato-coin.freedynamicdns.net/api/v1/potato_prices?date=2025-01-20
-  ```
-
-  <a href="https://potato-coin.freedynamicdns.net/api/v1/potato_prices?date=2025-01-20" target="_blank">Tester l'endpoint potato_prices 📖</a>
-
-## Technologies utilisées
-
-- **Langage** : Ruby on Rails
-- **Serveur d'application** : Puma
-- **Base de données** : PostgreSQL
-- **Serveur Web** : Nginx avec Let's Encrypt SSL
-- **Déploiement** : VPS sous Ubuntu avec Systemd
 
 ## Installation et configuration
 
@@ -68,6 +39,59 @@ L'API est accessible via les endpoints suivants :
    ```bash
    rails s
    ```
+
+## Accès à l'API
+
+L'API est accessible via les endpoints suivants :
+
+(limite de 100 requêtes par 5 minutes)
+
+### Localhost
+
+- **Meilleurs gains quotidiens potentiels** :
+
+  ```bash
+  GET http://127.0.0.1:3002/api/v1/best_daily_potential_gains?date=2025-01-16
+  ```
+
+  <a href="http://127.0.0.1:3002/api/v1/best_daily_potential_gains?date=2025-01-16" target="_blank">Aller à l'url 🤑</a>
+
+- **Prix des pommes de terre** :
+
+  ```bash
+  GET http://127.0.0.1:3002/api/v1/potato_prices?date=2025-01-20
+  ```
+
+  <a href="http://127.0.0.1:3002/api/v1/potato_prices?date=2025-01-20" target="_blank">Aller à l'url 📖</a>
+
+### API Deployée
+
+- **Meilleurs gains quotidiens potentiels** :
+
+  ```bash
+  GET https://potato-coin.freedynamicdns.net/api/v1/best_daily_potential_gains?date=2025-01-16
+  ```
+
+  <a href="https://potato-coin.freedynamicdns.net/api/v1/best_daily_potential_gains?date=2025-01-16" target="_blank">Aller à l'url 🤑</a>
+
+- **Prix des pommes de terre** :
+
+  ```bash
+  GET https://potato-coin.freedynamicdns.net/api/v1/potato_prices?date=2025-01-20
+  ```
+
+  <a href="https://potato-coin.freedynamicdns.net/api/v1/potato_prices?date=2025-01-20" target="_blank">Aller à l'url 📖</a>
+
+## Technologies utilisées
+
+- **Langage** : Ruby on Rails
+- **Serveur d'application** : Puma
+- **Base de données** : PostgreSQL
+
+#### Optionnel (ma propre initiative)
+
+- **Serveur Web** : Nginx avec Let's Encrypt SSL
+- **Déploiement** : VPS sous Ubuntu avec Systemd
 
 ## Auteur
 
