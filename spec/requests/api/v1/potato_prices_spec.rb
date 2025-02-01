@@ -18,12 +18,13 @@ RSpec.describe "PotatoPrices API", type: :request do
       expect(json.first["value"]).to eq(100.25)
     end
 
-    it "returns an empty array if no data is found" do
+    it "returns a message if no data is found" do
       get "/api/v1/potato_prices", params: { date: "2023-01-01" }
       expect(response).to have_http_status(:ok)
-
+      
       json = JSON.parse(response.body)
-      expect(json).to be_empty
+      expect(json["message"]).to eq("No data available for this date")
     end
+
   end
 end
