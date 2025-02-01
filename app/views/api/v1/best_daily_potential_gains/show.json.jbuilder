@@ -1,1 +1,1 @@
-json.max_profit @max_profit.round(2) 
+json.max_profit @max_profit 

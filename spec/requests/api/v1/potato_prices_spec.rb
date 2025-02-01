@@ -26,5 +26,21 @@ RSpec.describe "PotatoPrices API", type: :request do
       expect(json["message"]).to eq("No data available for this date")
     end
 
+    it "returns an error message when date format is invalid" do
+      get "/api/v1/potato_prices", params: { date: "2025-01-222" }
+      expect(response).to have_http_status(:bad_request)
+      
+      json = JSON.parse(response.body)
+      expect(json["message"]).to eq("Invalid date format. Please use YYYY-MM-DD")
+    end
+
+    it "returns an error message when date has invalid format (not YYYY-MM-DD)" do
+      get "/api/v1/potato_prices", params: { date: "20258-01-22" }
+      expect(response).to have_http_status(:bad_request)
+      
+      json = JSON.parse(response.body)
+      expect(json["message"]).to eq("Invalid date format. Please use YYYY-MM-DD")
+    end
+
   end
 end

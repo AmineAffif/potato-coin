@@ -1,15 +1,16 @@
 module Api
   module V1
-    class BestDailyPotentialGainsController < ApplicationController
+    class BestDailyPotentialGainsController < BaseController
       def show
-        date = params[:date] || Date.yesterday.to_s
-        prices = PotatoPrice.where(time: date.to_date.all_day).order(:time)
+        return unless validate_date_parameter
 
-        if prices.empty?
-          render json: { message: "No data available for this date" }, status: :not_found and return
+        @max_profit = BestDailyPotentialGainsService.new(params[:date].to_date).call
+        
+        if @max_profit.nil?
+          render_no_data_message(status: :not_found)
+        else
+          render :show, status: :ok
         end
-
-        @max_profit = BestDailyPotentialGainsService.new(prices).call
       end
     end
   end

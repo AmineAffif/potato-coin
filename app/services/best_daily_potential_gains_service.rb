@@ -1,27 +1,20 @@
 class BestDailyPotentialGainsService
-  def initialize(prices)
-    @prices = prices
+  def initialize(date)
+    @prices = PotatoPrice.where(time: date.all_day).order(:time)
   end
 
   def call
-    min_price = Float::INFINITY
-    max_profit = 0.0
-    best_buy_time = nil
-    best_sell_time = nil
+    return nil if @prices.empty?
+
+    max_profit = 0
+    min_price = @prices.first.value
 
     @prices.each do |price|
-      if price.value < min_price
-        min_price = price.value
-        best_buy_time = price.time
-      end
-
       current_profit = (price.value - min_price) * 100
-      if current_profit > max_profit
-        max_profit = current_profit
-        best_sell_time = price.time
-      end
+      max_profit = [max_profit, current_profit].max
+      min_price = [min_price, price.value].min
     end
 
-    max_profit
+    max_profit.round(2)
   end
 end

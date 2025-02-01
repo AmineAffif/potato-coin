@@ -49,5 +49,13 @@ RSpec.describe "BestDailyPotentialGain API", type: :request do
       
       expect(json_response['max_profit']).to eq(((103.75 - 98.50) * 100).round(2))
     end
+
+    it "returns an error message when date format is invalid" do
+      get "/api/v1/best_daily_potential_gains", params: { date: "2025-01-222" }
+      expect(response).to have_http_status(:bad_request)
+      
+      json = JSON.parse(response.body)
+      expect(json["message"]).to eq("Invalid date format. Please use YYYY-MM-DD")
+    end
   end
 end
