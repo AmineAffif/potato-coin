@@ -42,9 +42,6 @@ L'API est accessible via les endpoints suivants :
 ### Prérequis
 
 - Ruby 3.1.2
-- Bundler
-- PostgreSQL
-- Nginx
 
 ### Installation
 
@@ -61,7 +58,7 @@ L'API est accessible via les endpoints suivants :
    bundle install
    ```
 
-3. Configurer la base de données :
+3. Configurer la base de données (Create, Migrate, Seed -> All in one) :
 
    ```bash
    rails db:setup
@@ -71,16 +68,6 @@ L'API est accessible via les endpoints suivants :
    ```bash
    rails s
    ```
-
-## Problèmes connus et solutions
-
-1. **Erreur 500 : ActiveRecord::ConnectionNotEstablished**
-
-   - Vérifier que PostgreSQL est bien démarré :
-     ```bash
-     sudo systemctl status postgresql
-     ```
-   - Vérifier que la variable `DATABASE_PASSWORD_PROD` est bien définie.
 
 ## Auteur
 
