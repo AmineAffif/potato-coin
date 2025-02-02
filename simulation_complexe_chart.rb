@@ -131,21 +131,31 @@ def generate_bar_chart(scenario_name, data, trades, trade_colors, best_trade_col
   g = Gruff::Bar.new('800x600')
   g.title = "#{scenario_name} - Détails (Profit Total: #{data[:profit]})"
   
+  # Définir l'échelle de l'axe Y de 0 à 1000
+  g.minimum_value = 0
+  g.maximum_value = 1000
+  
   if scenario_name != "Scénario 4"
     labels = {}
     trade_values = []
     trade_colors_array = []
     
-    # D'abord les trades individuels
-    data[:volumes].each_with_index do |(trade_name, volume), idx|
-      labels[idx] = trade_name
-      trade = trades.find { |t| t[:name] == trade_name }
-      trade_values << trade[:profit] * volume
-      trade_colors_array << trade_colors[trade_name]
+    # D'abord les trades individuels (uniquement ceux avec un volume > 0)
+    current_idx = 0
+    trade_number = 1
+    data[:volumes].each do |trade_name, volume|
+      if volume > 0
+        labels[current_idx] = "Trade #{trade_number}"  # Renumérotation séquentielle
+        trade = trades.find { |t| t[:name] == trade_name }
+        trade_values << trade[:profit] * volume
+        trade_colors_array << trade_colors[trade_name]
+        current_idx += 1
+        trade_number += 1
+      end
     end
     
     # Ajouter le profit total à la fin
-    labels[trade_values.size] = "Profit Total"
+    labels[current_idx] = "Profit Total"
     trade_values << data[:profit]
     trade_colors_array << "#2980B9"  # Bleu pour le profit total
     
