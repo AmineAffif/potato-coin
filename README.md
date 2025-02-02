@@ -102,3 +102,39 @@ Amine Affif ©2025
 🚀 **Bon trading !**
 
 https://github.com/user-attachments/assets/0f0387e2-83c0-47b4-a2cc-be9a2d14760f
+
+## Bonus - Analyse du MaxProfit
+
+### Réflexion sur le calcul du MaxProfit
+
+Dans l'implémentation de l'API, j'ai choisi de calculer le MaxProfit en identifiant le point le plus bas et le point le plus haut ultérieur de la journée, puis en simulant un investissement total sur ce trade. Cette approche pourrait sembler simpliste face à l'infinité de stratégies de trading possibles. Pour valider ce choix, j'ai développé une simulation comparative (`simulation_complexe_chart.rb`) qui analyse différents scénarios d'investissement :
+
+### Scénarios analysés
+
+1. **Scénario 1** : Répartition uniforme (25% sur chaque trade possible)
+2. **Scénario 2** : Allocation pondérée (10%, 50%, 20%, 20%)
+3. **Scénario 3** : Concentration sur les deux meilleurs trades (40%, 0%, 0%, 60%)
+4. **Scénario 4** : Concentration totale sur le "meilleur trade" (100% sur min->max)
+
+Les résultats de cette simulation démontrent que le Scénario 4 (notre approche actuelle) génère systématiquement le profit maximum théorique.
+
+### Limites dans un contexte réel
+
+Bien que cette approche calcule mathématiquement le profit maximum possible, elle présente plusieurs limites dans un contexte de trading réel :
+
+1. **Absence de vision future** : En situation réelle, impossible de savoir si un point bas est le minimum absolu de la journée
+2. **Facteurs externes** : Nombreux paramètres non pris en compte (volumes disponibles, frais de transaction, slippage...)
+3. **Risque concentré** : Stratégie "all-in" très risquée en pratique
+4. **Timing parfait** : Suppose une exécution parfaite aux extremums, irréaliste en pratique
+
+### Conclusion
+
+Le calcul actuel du MaxProfit représente donc la limite théorique supérieure du gain possible, servant de benchmark idéal. Dans un contexte réel, une stratégie plus diversifiée (comme les scénarios 1-3) serait probablement plus prudente et réaliste, même si mathématiquement moins optimale.
+
+Pour explorer les différents scénarios, vous pouvez simplement voir les graphiques affiché plus haut, ou exécuter :
+
+```bash
+ruby simulation_complexe_chart.rb
+```
+
+Cela générera des graphiques en barres (à la racine du projet) pour chaque scénario, permettant de visualiser les différences de profit.
