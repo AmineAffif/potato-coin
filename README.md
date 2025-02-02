@@ -111,10 +111,17 @@ Dans l'implémentation de l'API, j'ai choisi de calculer le MaxProfit en identif
 
 ### Scénarios analysés
 
-1. **Scénario 1** : Répartition uniforme (25% sur chaque trade possible)
-2. **Scénario 2** : Allocation pondérée (10%, 50%, 20%, 20%)
-3. **Scénario 3** : Concentration sur les deux meilleurs trades (40%, 0%, 0%, 60%)
-4. **Scénario 4** : Concentration totale sur le "meilleur trade" (100% sur min->max)
+**Scénario 1️⃣** : Répartition uniforme (25% sur chaque trade possible) 💰 **PROFIT = 500**
+![scénario_1](https://github.com/user-attachments/assets/1eb0ec9f-64ff-4322-be26-ff8319bff4e4)
+
+**Scénario 2️⃣** : Allocation pondérée (10%, 50%, 20%, 20%) 💰💰 **PROFIT = 560**
+![scénario_2](https://github.com/user-attachments/assets/91f32ba5-4af9-429f-b5d4-e11b05ff53c3)
+
+**Scénario 3️⃣** : Concentration sur les deux meilleurs trades (40%, 0%, 0%, 60%) 💰💰💰 **PROFIT = 660**
+![scénario_3](https://github.com/user-attachments/assets/145953f9-890e-40b5-a4fe-09e4ede14274)
+
+**Scénario 4️⃣** : Concentration totale sur le "meilleur trade" (100% sur min->max) 💰💰💰💰💰💰 **PROFIT = 800**
+![scénario_4](https://github.com/user-attachments/assets/a5c02082-ef77-4bf7-8bcc-55a82eaf19c9)
 
 Les résultats de cette simulation démontrent que le Scénario 4 (notre approche actuelle) génère systématiquement le profit maximum théorique.
 
